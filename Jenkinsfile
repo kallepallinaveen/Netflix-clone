@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        SCANNER_HOME = tool 'sonar'
+        SCANNER_HOME = tool 'sonar-scanner'
     }
     stages{
         stage('cleanworkspace'){
@@ -18,7 +18,7 @@ pipeline{
         }
         stage('sonarqube Anyslsis'){
             steps{
-               withSonarQubeEnv('sonar-scanner') {
+               withSonarQubeEnv('sonar') {
                     sh" ${SCANNER_HOME}/bin/sonar-scanner \
                     -Dsonar.projectKey=netflex \
                     -Dsonar.sources=. "
