@@ -19,8 +19,10 @@ pipeline{
         stage('sonarqube Anyslsis'){
             steps{
                withSonarQubeEnv('sonar') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Netflix \
-                    -Dsonar.projectKey=Netflix '''
+                    sh" ${SCANNER_HOME}/bin/sonar-scanner \
+                    -Dsonar.projectKey=netflex \
+                   -Dsonar.host.url=http://54.83.121.97:9000 \
+                   -Dsonar.token=sqp_b8b147647fe21d659ebe85291552642422324e1c"
                }
             }
         }
