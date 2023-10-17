@@ -20,6 +20,7 @@ pipeline{
                         sh "npm install sonar-scanner"
                         sh "npm run sonar"
                     }
+                 }
             }
         }
     }
