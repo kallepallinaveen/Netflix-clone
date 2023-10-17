@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sonar": "node sonar.properties.cjs"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -21,6 +22,7 @@
     "react-router-dom": "^6.9.0",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
+    "sonar-scanner": "^3.1.0",
     "video.js": "^8.3.0",
     "videojs-youtube": "^3.0.1",
     "vite-tsconfig-paths": "^3.5.2"
