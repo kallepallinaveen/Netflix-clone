@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment{
+        SCANNER_HOME = tool 'sonar'
+    }
     stages{
         stage('cleanworkspace'){
             steps{
@@ -15,12 +18,11 @@ pipeline{
         }
         stage('sonarqube Anyslsis'){
             steps{
-                nodejs(nodeJSInstallationName: 'nodejs12.22.9') { 
-                    withSonarQubeEnv('sonar'){
-                        sh "npm install sonar-scanner"
-                        sh "npm run sonar"
-                    }
-                 }
+               withSonarQubeEnv('sonar-scanner') {
+                    sh" ${SCANNER_HOME}/bin/sonar-scanner \
+                    -Dsonar.projectKey=netflex \
+                    -Dsonar.sources=. "
+               }
             }
         }
     }
